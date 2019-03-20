@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template/principal.xhtml">
+            <ui:define name="contenido">
+                <div align="center">
+                    <h:form id="principal">
+                        <h1 align="center">PLAN NACIONAL</h1> 
+                        <p:dataTable id="data1" value="#{beanPlanNacional.listan}" var="lista2" rows="5"
+                                     paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="2,5,7">
+
+                            <p:column headerText="Nombre">
+                                <p:outputLabel value="#{lista2.planNombre}" />
+                            </p:column>
+
+                            <p:column headerText="Descripcion">
+                                <p:outputLabel value="#{lista2.planDescripcion}" />
+                            </p:column>
+                            <p:column headerText="Mision">
+                                <p:outputLabel value="#{lista2.planMision}" />
+                            </p:column>
+                            <p:column headerText="Vision">
+                                <p:outputLabel value="#{lista2.planVision}" />
+                            </p:column>
+                            <p:column headerText="Fecha Inicio">
+                                <p:outputLabel value="#{lista2.planFechai}" />
+                            </p:column>
+                            <p:column headerText="Fecha Fin">
+                                <p:outputLabel value="#{lista2.planFechaf}" />
+                            </p:column>
+                            
+                            <p:column headerText="Eliminar">
+                                <p:commandButton value="Eliminar" actionListener="#{beanPlanNacional.eliminarPlanN((lista2.planCodigo))}" update="data1">
+                                    <p:confirm header="Confirmation" message="Eliminar?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>
+                            </p:column>
+                        </p:dataTable>
+
+                        <br/>
+                        <br/>
+
+
+                        <h1 align="center">PLANES REGISTRADOS</h1> 
+                        <p:dataTable id="data" value="#{beanPlanEspe.listac}" var="lista1" rows="5"
+                                     paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="2,5,7">
+
+                            <p:column headerText="Nombre" filterBy="#{lista1.plaNombre}">
+                                <p:outputLabel value="#{lista1.plaNombre}"/>
+                            </p:column>
+                            
+<!--                            <p:column headerText="Titulo">
+                                <p:outputLabel value />
+                            </p:column>-->
+
+                            <p:column headerText="Descripcion">
+                                <p:outputLabel value="#{lista1.plaDescripcion}" />
+                            </p:column>
+                            <p:column headerText="Mision">
+                                <p:outputLabel value="#{lista1.plaMision}" />
+                            </p:column>
+                            <p:column headerText="Vision">
+                                <p:outputLabel value="#{lista1.plaVision}" />
+                            </p:column>
+                            <p:column headerText="Fecha Inicio">
+                                <p:outputLabel value="#{lista1.plaFechai}" />
+                            </p:column>
+                            <p:column headerText="Fecha Fin">
+                                <p:outputLabel value="#{lista1.plaFechaf}" />
+                            </p:column>
+                            <p:column headerText="Modificar">
+                                  <p:commandButton value="Modificar" oncomplete="PF('wdlgDatos').show();" update=":modalform:dlgDatos,:modalform:carDetail"
+                                                   action="#{beanPlanEspe.editarPlan(lista1)}">
+                                      
+                                </p:commandButton>                            
+                            </p:column>
+                            <p:column headerText="Eliminar">
+                                <p:commandButton value="Eliminar" actionListener="#{beanPlanEspe.eliminarPlan(lista1.plaCodigo)}" update="data">
+                                 <p:confirm header="Confirmation" message="Eliminar?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+
+
+
+                <h:form id="modalform">
+                  <p:dialog id="dlgDatos" header="Modificar Plan" widgetVar="wdlgDatos"  showEffect="fade" hideEffect="fade" resizable="false" >
+                        <p:panel id="carDetail">
+
+                            <h:panelGrid columns="2" cellpadding="3" rendered="#{not empty beanPlanEspe.codigo}" columnClasses="label,value">
+                                <p:outputLabel value="#{beanPlanEspe.codigo}" rendered="0"/>
+                                <p:outputLabel value="Tipo Plan: " />
+                                <p:selectOneMenu id="txtPlan" value="#{beanPlanEspe.tipoPlan}"   >
+                                    <f:selectItem itemLabel="Seleccione..." />
+                                    <f:selectItems var="lista" itemValue="#{lista.tipTipo}" value="#{beanPlanEspe.listap}" 
+                                                   itemLabel="#{lista.tipTipo}"/> 
+                                </p:selectOneMenu>
+
+
+                                <p:outputLabel for="titulo" value="Nombre Plan: " style=" text-align:center"/> 
+                                <p:inputText id="titulo" value="#{beanPlanEspe.titulo}" style="width:180px" />
+
+                                <p:outputLabel for="descripcion" value="Descripcion: " style=" text-align:center"/>   
+                                <p:inputTextarea id="descripcion" value="#{beanPlanEspe.descripcion}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" />
+
+
+                                <p:outputLabel for="mision" value="Mision: " style=" text-align:center"/>   
+                                <p:inputTextarea id="mision" value="#{beanPlanEspe.mision}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" />
+
+
+                                <p:outputLabel for="vision" value="Vision: " style=" text-align:center"/>   
+                                <p:inputTextarea  id="vision" value="#{beanPlanEspe.vision}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" />
+
+
+                                <p:outputLabel for="button1" value="Fecha Inicio: " />
+                                <p:calendar id="button1" value="#{beanPlanEspe.fechaI}">
+                                </p:calendar>
+
+                                <p:outputLabel for="button" value="Fecha Fin: " />
+                                <p:calendar id="button" value="#{beanPlanEspe.fechaF}">
+                                </p:calendar>
+                            </h:panelGrid>
+                            <p:commandButton value="MODIFICAR" actionListener="#{beanPlanEspe.modificarPlan()}" oncomplete="PF('wdlgDatos').hide();" update=":principal:data">
+                                   <p:confirm header="Confirmation" message="Modificar?" icon="ui-icon-alert" />
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>
+                           
+
+                        </p:panel>
+                    </p:dialog>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template/principal.xhtml">
+            <ui:define name="contenido">
+                <div align="center">
+                    <h:form id="formObjetivo">
+                        <p:growl id="message" showDetail="true" />
+                        <h1 align="center">INDICADORES DE OBJETIVOS</h1> 
+                        <h:panelGrid id="panelObjetivo" columns="3" cellpadding="2">
+                            <p:outputLabel value="Nombre Indicador: " />
+                            <p:inputText id="titulo1" value="#{beanIndicadores.obj}" style="width:180px" label="Lastname" required="true"/>
+                            <br/>
+                            <br/>
+                            <p:outputLabel  style="text-align:center" for="titulo" value="Descripcion:" />
+                            <p:inputTextarea  id="titulo" value="#{beanIndicadores.des}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" label="Lastname" required="true" />
+                            <br/>
+                            <br/>
+
+                            <p:outputLabel  style="text-align:center" for="calen" value="Fecha Ingreso: "  />
+                            <p:calendar id="calen" value="#{beanIndicadores.fecha}" label="Lastname" required="true" mindate="#{beanIndicadores.fechaActual}">
+                            </p:calendar>
+                            <br/>
+                            <br/>
+                        </h:panelGrid>
+                        <br/>
+                        <p:commandButton  value="INSERTAR"  actionListener="#{beanIndicadores.insertarI()}" update=":formObjetivo" >
+                            <p:confirm header="Confirmation" message="Guardar?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton  value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" update=":formObjetivo"/>
+                            
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"  update=":formObjetivo"/>
+                        </p:confirmDialog>  
+                    </h:form>                  
+                </div> 
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

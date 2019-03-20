@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template/principal.xhtml">
+            <ui:define name="contenido">
+                <div align="center">
+                    <h:form id="principal">
+                        <p:dataTable id="data" value="#{beanObjEspe.listad}" var="lista1" rows="5"
+                                     paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="2,5,7">
+
+                            <p:column headerText="Nombre Plan" sortBy="#{lista1.objNombre}">
+                                <p:outputLabel value="#{lista1.objNombre}" />
+                            </p:column>
+                            <p:column headerText="Nombre Objetivo">
+                                <p:outputLabel value="#{lista1.objTitulo}" />
+                            </p:column>
+                            <p:column headerText="Objetivo">
+                                <p:outputLabel value="#{lista1.objDescripcion}" />
+                            </p:column>
+                            <p:column headerText="Fecha de Ingreso">
+                                <p:outputLabel value="#{lista1.objFecha}" />
+                            </p:column>
+                            <p:column headerText="Modificar">
+                                <p:commandButton value="Modificar" oncomplete="PF('wdlgDatos').show();" update=":modalform:dlgDatos,:modalform:carDetail"
+                                                 action="#{beanObjEspe.editarObjetivo(lista1)}">
+                                   
+                                </p:commandButton>
+                            </p:column>
+                            <p:column headerText="Eliminar">
+                                <p:commandButton value="Eliminar" actionListener="#{beanObjEspe.eliminarObj(lista1.objCodigo)}" update="data">
+                                <p:confirm header="Confirmation" message="Eliminar?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>
+                            </p:column>
+                           
+                        </p:dataTable>
+                    </h:form>
+                </div>
+
+
+                <h:form id="modalform">
+                    <p:dialog id="dlgDatos" header="Modificar Objetivo" widgetVar="wdlgDatos"  showEffect="fade" hideEffect="fade" resizable="false" >
+                        <p:panel id="carDetail">
+                            <h:panelGrid columns="3" cellpadding="2" rendered="#{not empty beanObjEspe.obj}" columnClasses="label,value">
+                                <p:outputLabel value="#{beanObjEspe.codigo}" rendered="0"/>
+                                    <p:outputLabel value="Nombre Plan: " />
+                                    <p:selectOneMenu id="txtPlan" value="#{beanObjEspe.tipo1}"   >
+                                        <f:selectItem itemLabel="Seleccione..." />
+                                        <f:selectItems var="lista" itemValue="#{lista.planNombre}" value="#{beanObjEspe.c}" 
+                                                       itemLabel="#{lista.planNombre}"/> 
+                                    </p:selectOneMenu>
+                                    <br/>
+                                    <br/>
+                                    <p:outputLabel  style="text-align:center" for="titulo" value="Nombre Objetivo:" />
+                                    <p:inputText id="titulo"   value="#{beanObjEspe.tit}" style="width:180px" />
+                                    <br/>
+                                    <br/>
+                                    <p:outputLabel  style="text-align:center" for="tipo" value="Descripcion:" />
+                                    <p:inputTextarea  id="tipo" value="#{beanObjEspe.descp}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" />
+                                    <br/>
+                                    <br/>
+                                    <p:outputLabel  style="text-align:center" for="button1" value="Fecha Ingreso: " />
+                                    <p:calendar id="button1" value="#{beanObjEspe.fecha}">
+                                    </p:calendar>
+                                    <br/>
+                                    <br/>
+                                </h:panelGrid>
+
+                                <p:commandButton value="MODIFICAR" actionListener="#{beanObjEspe.modificarObj()}"  oncomplete="PF('wdlgDatos').hide();" update=":principal:data" >
+                                    <p:confirm header="Confirmation" message="Modificar?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                                </p:confirmDialog>
+                        </p:panel>
+                    </p:dialog>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

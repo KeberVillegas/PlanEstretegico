@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : ago 28, 2018, 5:22:44 p.m.
+    Author     : Kleber
+*/
+body
+{
+    font-size: 11px;
+}
+.disk-bar-style .ui-progressbar-value {
+background: yellow;
+}
+.memory-bar-style .ui-progressbar-value {
+background: green;
+}
+.cpu-bar-style .ui-progressbar-value {
+background: red;
+}

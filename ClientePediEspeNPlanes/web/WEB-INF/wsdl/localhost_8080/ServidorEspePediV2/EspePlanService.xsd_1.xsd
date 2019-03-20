@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://servidorEspeWeb/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servidorEspeWeb/">
+
+<xs:element name="Insertar" type="tns:Insertar"/>
+
+<xs:element name="InsertarAlinear" type="tns:InsertarAlinear"/>
+
+<xs:element name="InsertarAlinearResponse" type="tns:InsertarAlinearResponse"/>
+
+<xs:element name="InsertarIndObj" type="tns:InsertarIndObj"/>
+
+<xs:element name="InsertarIndObjResponse" type="tns:InsertarIndObjResponse"/>
+
+<xs:element name="InsertarIndicadores" type="tns:InsertarIndicadores"/>
+
+<xs:element name="InsertarIndicadoresResponse" type="tns:InsertarIndicadoresResponse"/>
+
+<xs:element name="InsertarObj" type="tns:InsertarObj"/>
+
+<xs:element name="InsertarObjResponse" type="tns:InsertarObjResponse"/>
+
+<xs:element name="InsertarPlanN" type="tns:InsertarPlanN"/>
+
+<xs:element name="InsertarPlanNResponse" type="tns:InsertarPlanNResponse"/>
+
+<xs:element name="InsertarResponse" type="tns:InsertarResponse"/>
+
+<xs:element name="InsertarTipo" type="tns:InsertarTipo"/>
+
+<xs:element name="InsertarTipoResponse" type="tns:InsertarTipoResponse"/>
+
+<xs:element name="ModificarIndObj" type="tns:ModificarIndObj"/>
+
+<xs:element name="ModificarIndObjResponse" type="tns:ModificarIndObjResponse"/>
+
+<xs:element name="ModificarObj" type="tns:ModificarObj"/>
+
+<xs:element name="ModificarObjResponse" type="tns:ModificarObjResponse"/>
+
+<xs:element name="alinearp" type="tns:alinearp"/>
+
+<xs:element name="buscarIndicadores" type="tns:buscarIndicadores"/>
+
+<xs:element name="buscarIndicadoresResponse" type="tns:buscarIndicadoresResponse"/>
+
+<xs:element name="buscarOI" type="tns:buscarOI"/>
+
+<xs:element name="buscarOIResponse" type="tns:buscarOIResponse"/>
+
+<xs:element name="buscarObj" type="tns:buscarObj"/>
+
+<xs:element name="buscarObjResponse" type="tns:buscarObjResponse"/>
+
+<xs:element name="buscarPlan" type="tns:buscarPlan"/>
+
+<xs:element name="buscarPlanN" type="tns:buscarPlanN"/>
+
+<xs:element name="buscarPlanNResponse" type="tns:buscarPlanNResponse"/>
+
+<xs:element name="buscarPlanResponse" type="tns:buscarPlanResponse"/>
+
+<xs:element name="eliminarIndicadores" type="tns:eliminarIndicadores"/>
+
+<xs:element name="eliminarIndicadoresResponse" type="tns:eliminarIndicadoresResponse"/>
+
+<xs:element name="eliminarOI" type="tns:eliminarOI"/>
+
+<xs:element name="eliminarOIResponse" type="tns:eliminarOIResponse"/>
+
+<xs:element name="eliminarObj" type="tns:eliminarObj"/>
+
+<xs:element name="eliminarObjResponse" type="tns:eliminarObjResponse"/>
+
+<xs:element name="eliminarPlan" type="tns:eliminarPlan"/>
+
+<xs:element name="eliminarPlanN" type="tns:eliminarPlanN"/>
+
+<xs:element name="eliminarPlanNResponse" type="tns:eliminarPlanNResponse"/>
+
+<xs:element name="eliminarPlanResponse" type="tns:eliminarPlanResponse"/>
+
+<xs:element name="indicadoresp" type="tns:indicadoresp"/>
+
+<xs:element name="modificarIndicadores" type="tns:modificarIndicadores"/>
+
+<xs:element name="modificarIndicadoresResponse" type="tns:modificarIndicadoresResponse"/>
+
+<xs:element name="modificarPlan" type="tns:modificarPlan"/>
+
+<xs:element name="modificarPlanN" type="tns:modificarPlanN"/>
+
+<xs:element name="modificarPlanNResponse" type="tns:modificarPlanNResponse"/>
+
+<xs:element name="modificarPlanResponse" type="tns:modificarPlanResponse"/>
+
+<xs:element name="objetivoind" type="tns:objetivoind"/>
+
+<xs:element name="objetivosexternos" type="tns:objetivosexternos"/>
+
+<xs:element name="obtenerAli" type="tns:obtenerAli"/>
+
+<xs:element name="obtenerAliResponse" type="tns:obtenerAliResponse"/>
+
+<xs:element name="obtenerI" type="tns:obtenerI"/>
+
+<xs:element name="obtenerIResponse" type="tns:obtenerIResponse"/>
+
+<xs:element name="obtenerIndicadiresObj" type="tns:obtenerIndicadiresObj"/>
+
+<xs:element name="obtenerIndicadiresObjResponse" type="tns:obtenerIndicadiresObjResponse"/>
+
+<xs:element name="obtenerObj" type="tns:obtenerObj"/>
+
+<xs:element name="obtenerObjResponse" type="tns:obtenerObjResponse"/>
+
+<xs:element name="obtenerPlan" type="tns:obtenerPlan"/>
+
+<xs:element name="obtenerPlanN" type="tns:obtenerPlanN"/>
+
+<xs:element name="obtenerPlanNResponse" type="tns:obtenerPlanNResponse"/>
+
+<xs:element name="obtenerPlanResponse" type="tns:obtenerPlanResponse"/>
+
+<xs:element name="obtenerTipoPlan" type="tns:obtenerTipoPlan"/>
+
+<xs:element name="obtenerTipoPlanResponse" type="tns:obtenerTipoPlanResponse"/>
+
+<xs:element name="plannacionalp" type="tns:plannacionalp"/>
+
+<xs:element name="planpedip" type="tns:planpedip"/>
+
+<xs:element name="tipoplan" type="tns:tipoplan"/>
+
+<xs:complexType name="eliminarOI">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarOIResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerI">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerIResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:indicadoresp" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="indicadoresp">
+<xs:sequence>
+<xs:element name="indCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="indDescripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="indFechai" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="indObjetivo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarOI">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarOIResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:objetivoind" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objetivoind">
+<xs:sequence>
+<xs:element name="objiCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="objiIndicador" type="xs:string" minOccurs="0"/>
+<xs:element name="objiNomplan" type="xs:string" minOccurs="0"/>
+<xs:element name="objiObjetivo" type="xs:string" minOccurs="0"/>
+<xs:element name="objiPorcentaje" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarTipo">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarTipoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerAli">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerAliResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alinearp" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alinearp">
+<xs:sequence>
+<xs:element name="aliCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="aliEspe" type="xs:string" minOccurs="0"/>
+<xs:element name="aliNacional" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarIndObj">
+<xs:sequence>
+<xs:element name="cod" type="xs:string" minOccurs="0"/>
+<xs:element name="porcentaje" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarIndObjResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarPlan">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarPlanResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerPlanN">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerPlanNResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:plannacionalp" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="plannacionalp">
+<xs:sequence>
+<xs:element name="planCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="planDescripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="planFechaf" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="planFechai" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="planMision" type="xs:string" minOccurs="0"/>
+<xs:element name="planNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="planTipo" type="xs:string" minOccurs="0"/>
+<xs:element name="planVision" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarIndicadores">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarIndicadoresResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarIndObj">
+<xs:sequence>
+<xs:element name="indicador" type="xs:string" minOccurs="0"/>
+<xs:element name="objetivo" type="xs:string" minOccurs="0"/>
+<xs:element name="NombrePlan" type="xs:string" minOccurs="0"/>
+<xs:element name="porcentaje" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarIndObjResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerIndicadiresObj">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerIndicadiresObjResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:objetivoind" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarAlinear">
+<xs:sequence>
+<xs:element name="espe1" type="xs:string" minOccurs="0"/>
+<xs:element name="nacional1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarAlinearResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerPlan">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerPlanResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:planpedip" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="planpedip">
+<xs:sequence>
+<xs:element name="plaCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="plaDescripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="plaFechaf" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="plaFechai" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="plaMision" type="xs:string" minOccurs="0"/>
+<xs:element name="plaNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="plaTipo" type="xs:string" minOccurs="0"/>
+<xs:element name="plaVision" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarPlanN">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarPlanNResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarPlanN">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="vision" type="xs:string" minOccurs="0"/>
+<xs:element name="mision" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaF" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarPlanNResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarObj">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarObjResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarObj">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarObjResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:objetivosexternos" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objetivosexternos">
+<xs:sequence>
+<xs:element name="objCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="objDescripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="objFecha" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="objNombre" type="xs:string" minOccurs="0"/>
+<xs:element name="objTitulo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarPlan">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarPlanResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:planpedip" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Insertar">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="vision" type="xs:string" minOccurs="0"/>
+<xs:element name="mision" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaF" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarObj">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="tit" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarObjResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarIndicadores">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarIndicadoresResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:indicadoresp" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarIndicadores">
+<xs:sequence>
+<xs:element name="Cod" type="xs:string" minOccurs="0"/>
+<xs:element name="Obj" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarIndicadoresResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerObj">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerObjResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:objetivosexternos" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarPlanN">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarPlanNResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:plannacionalp" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarObj">
+<xs:sequence>
+<xs:element name="cod" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="tit" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarObjResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarPlanN">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="vision" type="xs:string" minOccurs="0"/>
+<xs:element name="mision" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaF" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarPlanNResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarPlan">
+<xs:sequence>
+<xs:element name="as_codigo" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="vision" type="xs:string" minOccurs="0"/>
+<xs:element name="mision" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaF" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarPlanResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerTipoPlan">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerTipoPlanResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoplan" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoplan">
+<xs:sequence>
+<xs:element name="tipCodigo" type="xs:string" minOccurs="0"/>
+<xs:element name="tipTipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarIndicadores">
+<xs:sequence>
+<xs:element name="Obj" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaI" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarIndicadoresResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head> 
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template/principal.xhtml">
+            <ui:define name="contenido">
+                
+                <h:form id="plan">
+                    <h1 align="center">REGISTRO PLAN</h1> 
+                    <p:growl id="message" showDetail="true" />
+                    <h:panelGrid columns="2" cellpadding="2">
+                        <p:outputLabel value="Tipo Plan: " />
+                        <p:selectOneMenu id="txtPlan" value="#{beanPlanEspe.tipoPlan}"   >
+                            <f:selectItem itemLabel="Seleccione..." />
+                            <f:selectItems var="lista" itemValue="#{lista.tipTipo}" value="#{beanPlanEspe.listap}" 
+                                           itemLabel="#{lista.tipTipo}"/> 
+                        </p:selectOneMenu>
+                       
+
+                        <p:outputLabel for="titulo" value="Nombre Plan: " style=" text-align:center"/> 
+                        <p:inputText id="titulo" value="#{beanPlanEspe.titulo}" style="width:180px"  label="Lastname" required="true" />
+                        
+                        <p:outputLabel for="descripcion" value="Descripcion: " style=" text-align:center"/>   
+                        <p:inputTextarea id="descripcion" value="#{beanPlanEspe.descripcion}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" label="Lastname" required="true" />
+                        
+
+                        <p:outputLabel for="mision" value="Mision: " style=" text-align:center"/>   
+                        <p:inputTextarea id="mision" value="#{beanPlanEspe.mision}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" label="Lastname" required="true"/>
+                        
+
+                        <p:outputLabel for="vision" value="Vision: " style=" text-align:center"/>   
+                        <p:inputTextarea  id="vision" value="#{beanPlanEspe.vision}" rows="3" cols="50"  queryDelay="750" minQueryLength="4" label="Lastname" required="true"/>
+                        
+
+                        <p:outputLabel for="button1" value="Fecha Inicio: " />
+                        <p:calendar id="button1" value="#{beanPlanEspe.fechaI}" label="Lastname" required="true">
+                        </p:calendar>
+                      
+
+                        <p:outputLabel for="button" value="Fecha Fin: " />
+                        <p:calendar id="button" value="#{beanPlanEspe.fechaF}" label="Lastname" required="true" >
+                        </p:calendar>
+                        
+
+                    </h:panelGrid>
+                    <div align="center">
+                        <p:commandButton value="INSERTAR"  actionListener="#{beanPlanEspe.insertarPlan()}" update=":plan">
+                         <p:confirm header="Confirmation" message="Guardar?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                          <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+                    </div>
+
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

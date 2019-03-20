@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/ServidorEspePedi/EspePlanService?wsdl" uri="src/conf/xml-resources/web-service-references/EspePlanService/wsdl/localhost_8080/ServidorEspePedi/EspePlanService.wsdl"/>
+    <system systemId="http://localhost:8080/ServidorEspePedi/EspePlanService?xsd=1" uri="src/conf/xml-resources/web-service-references/EspePlanService/wsdl/localhost_8080/ServidorEspePedi/EspePlanService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ServidorEspePediV2/EspePlanService?wsdl" uri="src/conf/xml-resources/web-service-references/EspePlanService/wsdl/localhost_8080/ServidorEspePediV2/EspePlanService.wsdl"/>
+    <system systemId="http://localhost:8080/ServidorEspePediV2/EspePlanService?xsd=1" uri="src/conf/xml-resources/web-service-references/EspePlanService/wsdl/localhost_8080/ServidorEspePediV2/EspePlanService.xsd_1.xsd"/>
+</catalog>

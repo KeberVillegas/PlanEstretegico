@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head> 
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <ui:composition template="/WEB-INF/template/principal.xhtml">
+            <ui:define name="contenido">
+
+                <h:form id="plan">
+
+                    <h1 align="center">REGISTRO OBJETIVO OBJETIVO</h1> 
+                    <p:growl id="message" showDetail="true" />
+                    <h:panelGrid columns="1" cellpadding="2">
+
+                        <h:panelGrid columns="2" style="height:  100px">
+
+                            <p:outputLabel value="Objetivos - Plan Nacional: " />
+                            <p:selectOneMenu id="cmbObjetivosPlanN" value="#{beanAlinear.objetivosPlanNacionalSelect}"  >
+                                <f:selectItem itemLabel="Seleccione..." />
+                                <f:selectItems var="lista1" itemValue="#{lista1.objCodigo}" value="#{beanAlinear.objetivosPlanNacional}" 
+                                               itemLabel="#{lista1.objTitulo}" />  
+                                <p:ajax update="descripcionX" listener="#{beanAlinear.obtenerDescripcion()}"/>
+                            </p:selectOneMenu>
+                             
+                            <p:outputLabel value="Descripcion: "></p:outputLabel>
+                            <p:outputLabel id="descripcionX" value="#{beanAlinear.temp.objDescripcion}"></p:outputLabel>
+
+                            <p:outputLabel value="Plan Estrategico Espe: " />
+                            <p:selectOneMenu id="cmbObjetivosTiposPlanE" value="#{beanAlinear.tiposObjetivosPlanEspeSelect}"   >
+                                <f:selectItem itemLabel="Seleccione..." />
+                                <f:selectItems var="lista1" itemValue="#{lista1.plaCodigo}" value="#{beanAlinear.tiposObjetivosPlanEspe}" 
+                                               itemLabel="#{lista1.plaTipo}" />  
+                                <p:ajax update="cmbObjetivoPlanE" listener="#{beanAlinear.obtenerTipoObjetivoPlanEspe()}" />
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value="Plan Operativo Espe: " />
+                            <p:selectOneMenu id="cmbObjetivoPlanE" value="#{beanAlinear.objetivosXTipoPlanEspeSelect}"   >
+                                <f:selectItem itemLabel="Seleccione..." />
+                                <f:selectItems var="lista1" itemValue="#{lista1.objCodigo}" value="#{beanAlinear.objetivosXTipoPlanEspe}" 
+                                               itemLabel="#{lista1.objTitulo}" />  
+
+                            </p:selectOneMenu>
+
+
+
+                        </h:panelGrid>
+
+
+                        <p:commandButton  value="Insertar"  actionListener="#{beanAlinear.guardarObjetivoObjetivo()}" update=":plan">
+                            <p:confirm header="Confirmation" message="Guardar?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
+
+
+                        <h:panelGrid columns="1">
+                            <p:dataTable id="vehiclesTable" var="vehicle" value="#{beanAlinear.arbol}">  
+                                
+                                <f:facet name="header">  
+                                    Objetivos - Objetivos  
+                                </f:facet>  
+
+                                <p:column exportable="false" width="5%">  
+                                    <p:rowToggler />  
+                                </p:column>  
+
+                                <p:column>  
+                                    <f:facet name="header">  
+                                        Objetivos Plan Nacional  
+                                    </f:facet>  
+                                    <h:outputText value="#{vehicle.padre}" />  
+                                </p:column>  
+
+                             
+
+                                <p:rowExpansion>  
+                                    <p:dataTable id="display" var="customer" value="#{vehicle.hijo}" style="width:400px;">  
+
+                                       
+                                        <p:column>  
+                                            <f:facet name="header">  
+                                                <h:outputText value="Objetivos Plan ESPE"></h:outputText>  
+                                            </f:facet>  
+                                            <h:outputText value="#{customer}" />  
+                                        </p:column>  
+                                      
+                                    </p:dataTable>  
+
+                                </p:rowExpansion>  
+                            </p:dataTable>  
+                        </h:panelGrid>
+
+                    </h:panelGrid>
+
+
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
